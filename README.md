@@ -1,10 +1,35 @@
-- 👋 Hi, I’m @Greatthedevolper
-- 👀 I’m interested in Web Devolpment.
-- 🌱 I’m currently learning javaScript.
-- 💞️ I’m looking to collaborate on web Solution.
-- 📫 How to reach me via email greatthedevolper@gmail.com 24/7.
+# My-Portfolio
 
-<!---
-Greatthedevolper/Greatthedevolper is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+This template should help get you started developing with Vue 3 in Vite.
+
+## Recommended IDE Setup
+
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+
+## Customize configuration
+
+See [Vite Configuration Reference](https://vitejs.dev/config/).
+
+## Project Setup
+
+```sh
+npm install
+```
+
+### Compile and Hot-Reload for Development
+
+```sh
+npm run dev
+```
+
+### Compile and Minify for Production
+
+```sh
+npm run build
+```
+
+### Lint with [ESLint](https://eslint.org/)
+
+```sh
+npm run lint
+```

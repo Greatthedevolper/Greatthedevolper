@@ -4,7 +4,7 @@ import SideBar from "./components/SideBar.vue";</script>
 
 <template>
   <div class="main-div-wrapper">
-    <SideBar msg=""/>
+    <SideBar msg=""/> 
     <div class="main-div">
       <header/>
       <RouterView v-slot="{ Component }">

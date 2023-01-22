@@ -80,15 +80,13 @@ export default {
     position: absolute;
     background: white;
     color: black;
-    width: 5vw;
-    height: 5vw;
+    width: 10vw;
     left: 0;
     top: 0;
     transform: translate(-50%, -50%) scale(0);
     transition: all 0.3s;
     opacity: 0;
-    border-radius: 50%;
-    font-size: 1.05vw;
+    font-size: 1.5vw;
 
     &.router-link-active.router-link-exact-active,
     &:hover {
@@ -104,30 +102,29 @@ export default {
     transform: translate(-50%, -50%) scale(1);
 
     &:nth-of-type(1) {
-      left: 13vw;
+      left: 15vw;
       transition-delay: 0s;
     }
 
     &:nth-of-type(2) {
-      left: 18.5vw;
+      left: 25.5vw;
       transition-delay: 0.125s;
     }
 
     &:nth-of-type(3) {
-      left: 24vw;
+      left: 36vw;
       transition-delay: 0.25s;
     }
 
     &:nth-of-type(4) {
-      left: 29.5vw;
+      left: 46.5vw;
       transition-delay: 0.375s;
     }
 
     &:nth-of-type(5) {
-      left: 35vw;
+      left: 57vw;
       transition-delay: 0.5s;
     }
-
   }
 }
 

@@ -1,4 +1,5 @@
 @import './standard';
+@import '../fonts/stylesheet.css';
 
 #app {
   font-weight: normal;
@@ -59,25 +60,34 @@ a,
 //}
 
 .home-wrapper {
-  position: absolute;
+  position: relative;
   width: 100%;
   height: 100vh;
-  background: black;
+  //background: black;
   display: flex;
   align-items: center;
   justify-content: center;
   background: url("../images/home-background.jpg");
   background-position: center;
   background-size: cover;
-  background-repeat: no-repeat;
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.1));
+  }
 
   .content-wrapper {
     display: inline-block;
     text-decoration: none;
-    color: black;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 50px;
+    color: white;
+    padding: 3vw;
     border-radius: 10px;
-
+    position: relative;
+    z-index: 9;
+    overflow: hidden;
   }
+
 }

@@ -46,32 +46,18 @@ export default {
 </script>
 
 <style lang="scss">
-.menu-wrapper-btn {
-  display: none;
-  @media screen and (max-width: 767px) {
-    display: block;
-  }
-
-}
-
-a {
-  text-decoration: none;
-}
-
 .menu-wrapper {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 9999;
 
-
   .toggle {
     display: none;
   }
 
   .menu-label {
-    width: 100px;
-    height: 100px;
+    width: 10vw;
     border-radius: 50%;
     cursor: pointer;
     display: inline-flex;
@@ -94,50 +80,51 @@ a {
     position: absolute;
     background: white;
     color: black;
-    width: 80px;
-    height: 80px;
+    width: 5vw;
+    height: 5vw;
     left: 0;
     top: 0;
     transform: translate(-50%, -50%) scale(0);
     transition: all 0.3s;
     opacity: 0;
     border-radius: 50%;
-    text-decoration: none;
+    font-size: 1.05vw;
 
     &.router-link-active.router-link-exact-active,
     &:hover {
-      background: green;
-      color: black;
+      background: #01a8f5;
+      color:white;
+      text-decoration: underline;
     }
   }
 
   .toggle:checked ~ .tab {
     opacity: 1;
-    top: 45px;
+    top: 3.5vw;
     transform: translate(-50%, -50%) scale(1);
 
     &:nth-of-type(1) {
-      left: 150px;
+      left: 13vw;
       transition-delay: 0s;
     }
 
     &:nth-of-type(2) {
-      left: 235px;
+      left: 18.5vw;
       transition-delay: 0.125s;
     }
 
     &:nth-of-type(3) {
-      left: 320px;
+      left: 24vw;
       transition-delay: 0.25s;
     }
 
     &:nth-of-type(4) {
-      left: 405px;
+      left: 29.5vw;
       transition-delay: 0.375s;
     }
 
     &:nth-of-type(5) {
-      left: 490px;
+      left: 35vw;
       transition-delay: 0.5s;
     }
 

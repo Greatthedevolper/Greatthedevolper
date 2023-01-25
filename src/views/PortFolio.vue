@@ -1,5 +1,13 @@
 <script>
+import 'vue3-carousel/dist/carousel.css'
+import {Carousel, Slide, Navigation} from 'vue3-carousel'
+
 export default {
+  components: {
+    Carousel,
+    Slide,
+    Navigation,
+  },
   data() {
     return {
       isActive: true,
@@ -34,6 +42,15 @@ export default {
           >
         </div>
       </div>
+      <carousel :items-to-show="1.5">
+        <slide v-for="slide in 10" :key="slide">
+          {{ slide }}
+        </slide>
+
+        <template #addons>
+          <navigation/>
+        </template>
+      </carousel>
     </div>
   </div>
 </template>
@@ -42,12 +59,15 @@ export default {
 <style lang="scss" scoped>
 .media-gallery {
   padding: 100px 0;
+
   .img-wrapper {
     max-width: 600px;
     margin: 15px;
+
     img {
       width: 100%;
       cursor: pointer;
+
       &.active {
         border: 4px solid red;
       }

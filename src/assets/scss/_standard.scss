@@ -5,22 +5,21 @@
   --black: #222222;
   --indigo: #2c3e50;
   --light: #3C3C3C49;
+  --red:#ffff5f;
 }
 
-$roboto-slab: "Roboto Slab";
-$background: var(--white);
-$heading: var(--black);
-$text: var(--light);
-$indigo: var(--indigo);
+  $roboto-slab: "Roboto Slab";
+  $background: var(--white);
+  $heading: var(--black);
+  $text: var(--white);
+  $indigo: var(--indigo);
 
 
-@media (prefers-color-scheme: dark) {
-  :root {
     $background: var(--black);
     $heading: var(--white);
-    $text: var(--white);
-  }
-}
+
+
+
 
 *,
 *::before,
@@ -40,7 +39,6 @@ body {
   line-height: 1.6;
   font-family: $roboto-slab;
   font-size: 1.2vw;
-
 }
 
 body::-webkit-scrollbar {

@@ -1,12 +1,57 @@
-<script setup>
+<script>
 import {RouterView} from "vue-router";
-import SideBar from "./components/SideBar.vue";</script>
+import SideBar from "./components/SideBar.vue";
+
+export default {
+  components: {
+    SideBar,
+    RouterView
+  },
+  data() {
+    return {
+      checked: 'false',
+      currentPath: window.location.hash,
+      themeClass: localStorage.getItem("theme-class") || false,
+    }
+  },
+
+  computed: {
+    currentView() {
+      return routes[this.currentPath.slice(1) || '/'] || NotFound
+    }
+  },
+  mounted() {
+    window.addEventListener('hashchange', () => {
+      this.currentPath = window.location.hash
+    })
+  },
+  methods: {
+    toggle: function () {
+      let wrapper = document.querySelector(".main-div-wrapper")
+      if (localStorage.getItem("theme-class")) {
+        if ((localStorage.getItem("theme-class")) === "") {
+          wrapper.classList.add("light")
+          localStorage.setItem("theme-class", "light");
+        } else {
+          wrapper.classList.remove("light")
+          localStorage.setItem("theme-class", "");
+        }
+      } else {
+        wrapper.classList.add("light")
+        localStorage.setItem("theme-class", "light");
+      }
+    }
+  },
+
+}
+
+</script>
 
 <template>
-  <div class="main-div-wrapper">
-    <SideBar msg=""/> 
+  <div class="main-div-wrapper" :class="[this.$route.name, themeClass ]">
+    <SideBar msg=""/>
     <div class="main-div">
-      <header/>
+      <button id="theme-btn" @click="toggle()"><i class="lni lni-sun"></i></button>
       <RouterView v-slot="{ Component }">
         <transition name="scale-slide">
           <component :is="Component" :key="$route.path"></component>
@@ -15,6 +60,7 @@ import SideBar from "./components/SideBar.vue";</script>
     </div>
   </div>
 </template>
+
 
 <style lang="scss" scoped>
 .scale-slide-enter-active,

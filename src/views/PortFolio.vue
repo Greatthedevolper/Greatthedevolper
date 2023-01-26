@@ -1,75 +1,112 @@
-<script>
-import 'vue3-carousel/dist/carousel.css'
-import {Carousel, Slide, Navigation} from 'vue3-carousel'
-
-export default {
-  components: {
-    Carousel,
-    Slide,
-    Navigation,
-  },
-  data() {
-    return {
-      isActive: true,
-      images: [
-        {src: "src/assets/images/portfolio1.png", alt: "My-Work1"},
-        {src: "src/assets/images/Portfolio2.png", alt: "My-Work2"},
-        {src: "src/assets/images/Portfolio3.png", alt: "My-Work3"},
-        {src: "src/assets/images/Portfolio4.png", alt: "My-Work4"},
-        {src: "src/assets/images/Portfolio5.png", alt: "My-Work5"},
-        {src: "src/assets/images/Portfolio6.png", alt: "My-Work5"},
-      ]
-    }
-  },
-  methods: {
-    changeActive(index) {
-      this.isActive = this.isActive === index ? null : index
-    }
-  }
-}
-</script>
 <template>
-  <div class="media-gallery">
-    <h2>My Recent Work :</h2>
-    <div class="row">
-      <div class="col-md-6" v-for="(images,index) in images">
-        <div class="img-wrapper">
-          <img
-              v-on:click="changeActive(index)"
-              :src=images.src
-              :alt=images.alt
-              v-bind:class="{ active: index === isActive }"
-          >
-        </div>
-      </div>
-      <carousel :items-to-show="1.5">
-        <slide v-for="slide in 10" :key="slide">
-          {{ slide }}
-        </slide>
-
+  <div class="container">
+    <div class="main-gallery">
+      <Carousel
+          id="gallery"
+          :items-to-show="1.5"
+          :wrap-around="false"
+          v-model="currentSlide"
+      >
+        <Slide v-for="slide in images" :key="slide">
+          <img class="carousel__item" :src="slide.src" :alt="slide.alt"/>
+        </Slide>
         <template #addons>
-          <navigation/>
+          <Pagination/>
+          <Navigation />
         </template>
-      </carousel>
+      </Carousel>
+
+      <Carousel
+          id="thumbnails"
+          :items-to-show="4"
+          :wrap-around="true"
+          v-model="currentSlide"
+          ref="carousel"
+      >
+        <Slide v-for="(slide,index) in images" :key="slide">
+          <img class="carousel__item" :src="slide.src" :alt="slide.alt" @click="slideTo(index)"/>
+        </Slide>
+        <template #addons>
+          <Navigation />
+        </template>
+      </Carousel>
     </div>
   </div>
 </template>
 
+<script>
+import {defineComponent} from 'vue'
+import {Carousel, Navigation, Pagination, Slide} from 'vue3-carousel'
+
+import 'vue3-carousel/dist/carousel.css'
+
+export default defineComponent({
+  name: 'Gallery',
+  components: {
+    Carousel,
+    Slide,
+    Navigation,
+    Pagination,
+  },
+  data: () => ({
+    currentSlide: 0,
+    images: [
+      {src: "src/assets/images/bicord-image-1.png", alt: "My-Work1"},
+      {src: "src/assets/images/bicord-image-2.png", alt: "My-Work2"},
+      {src: "src/assets/images/bicord-image-3.png", alt: "My-Work3"},
+      {src: "src/assets/images/bicord-image-4.png", alt: "My-Work4"},
+      {src: "src/assets/images/bicord-image-5.png", alt: "My-Work5"},
+      {src: "src/assets/images/bicord-image-6.png", alt: "My-Work5"},
+    ]
+  }),
+  methods: {
+    slideTo(val) {
+      this.currentSlide = val
+    },
+  },
+})
+</script>
 
 <style lang="scss" scoped>
-.media-gallery {
-  padding: 100px 0;
 
-  .img-wrapper {
-    max-width: 600px;
-    margin: 15px;
+.main-gallery {
+  padding-top: 50px;
 
-    img {
+  #gallery {
+    margin: 30px 0;
+
+    .carousel__slide {
       width: 100%;
-      cursor: pointer;
+      height: 400px;
+      margin-right: 10px;
 
-      &.active {
-        border: 4px solid red;
+      .carousel__item {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+      }
+    }
+
+
+    .carousel__prev,
+    .carousel__next {
+      border: 1px solid red;
+      border-radius: 50%;
+      color: red;
+    }
+  }
+
+
+  #thumbnails {
+    .carousel__slide {
+      width: 100%;
+      height: 100px;
+
+      .carousel__item {
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        border-radius: 10px;
       }
     }
   }

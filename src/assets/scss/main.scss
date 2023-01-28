@@ -191,6 +191,59 @@ a,
     position: relative;
     z-index: 9;
     overflow: hidden;
+
+    p {
+      font-size: 2vw;
+    }
   }
 
+}
+
+.form-wrapper {
+  padding-top: 100px;
+
+  h2 {
+    color: $text;
+    text-align: center;
+  }
+
+  .contact-form {
+    max-width: 500px;
+    margin: 0 0 0 auto;
+
+    .form-group {
+      width: 100%;
+      margin: 0 0 10px 0;
+
+      label {
+        color: $text;
+        margin-bottom: 5px;
+      }
+
+      .form-control {
+        padding: 15px;
+      }
+    }
+  }
+
+  .card-wrapper {
+    .contact-card {
+      display: block;
+      background: rgba(0,0,0,0.5);
+      padding: 25px;
+      border-radius: 5px;
+      color: $text;
+      text-align: center;
+      &:hover{
+        transform: scale(1.1);
+      }
+
+      .card-title {
+        font-size: 20px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: -1.5px;
+      }
+    }
+  }
 }

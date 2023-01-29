@@ -33,20 +33,29 @@
           <div class="row">
             <div class="col-lg-4">
               <a class="contact-card" href="tel:03041135074">
-                <span class="card-title d-block">Call me</span>
+                <span class="icon-wrapper">
+                  <i class="lni lni-phone"></i>
+                </span>
+                <h3>Call me</h3>
                 <span class="card-details">03041135074</span>
               </a>
             </div>
             <div class="col-lg-4">
               <a class="contact-card" href="tel:03041135074">
-                <span class="card-title d-block">Call me</span>
+                <span class="icon-wrapper">
+                 <i class="lni lni-whatsapp"></i>
+                </span>
+                <h3>Whats me</h3>
                 <span class="card-details">03041135074</span>
               </a>
             </div>
             <div class="col-lg-4">
-              <a class="contact-card" href="tel:03041135074">
-                <span class="card-title d-block">Call me</span>
-                <span class="card-details">03041135074</span>
+              <a class="contact-card" href="mailto:greatthedevolper@gmail.com">
+                <span class="icon-wrapper">
+                 <i class="lni lni-envelope"></i>
+                </span>
+                <h3>Email me</h3>
+                <span class="card-details">greatthedevolper@gmail.com</span>
               </a>
             </div>
           </div>

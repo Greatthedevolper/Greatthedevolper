@@ -9,7 +9,7 @@ export default {
   },
   data() {
     return {
-      checked: 'false',
+      isActive: false,
       currentPath: window.location.hash,
       themeClass: localStorage.getItem("theme-class") || false,
     }
@@ -24,6 +24,7 @@ export default {
     window.addEventListener('hashchange', () => {
       this.currentPath = window.location.hash
     })
+    window.addEventListener("scroll", this.handleScroll);
   },
   methods: {
     toggle: function () {
@@ -40,7 +41,21 @@ export default {
         wrapper.classList.add("light")
         localStorage.setItem("theme-class", "light");
       }
-    }
+    },
+    handleScroll: function () {
+      let currentScrollPosition = window.scrollY
+      let header = document.querySelector(".site-header")
+      if (currentScrollPosition >= 100) {
+        header.classList.add("sticky-header")
+      } else {
+        header.classList.remove("sticky-header")
+      }
+    },
+    shadowActive(){
+      let siteBody = document.body;
+      this.isActive = !this.isActive;
+      this.isActive ? siteBody.classList.add("active") : siteBody.classList.remove("active");
+    },
   },
 
 }
@@ -49,15 +64,12 @@ export default {
 
 <template>
   <div class="main-div-wrapper" :class="[this.$route.name, themeClass ]">
-    <SideBar msg=""/>
-    <div class="main-div">
-      <button id="theme-btn" @click="toggle()"><i class="lni lni-sun"></i></button>
-      <RouterView v-slot="{ Component }">
-        <transition name="scale-slide">
-          <component :is="Component" :key="$route.path"></component>
-        </transition>
-      </RouterView>
-    </div>
+    <SideBar @shadow="shadowActive()"/>
+    <RouterView v-slot="{ Component }">
+      <transition name="scale-slide">
+        <component :is="Component" :key="$route.path"></component>
+      </transition>
+    </RouterView>
   </div>
 </template>
 

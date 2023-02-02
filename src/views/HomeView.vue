@@ -53,13 +53,52 @@
     </div>
   </section>
   <!-- Banner End -->
+  <div class="main-my-client">
+    <div class="container">
+      <div class="  my-client-slider-two wow fadeInUp" data-wow-delay=".5s">
+        <div class="swiper-wrapper">
+          <Carousel
+              id="thumbnails"
+              :items-to-show="4"
+              :wrap-around="true"
+              v-model="currentSlide"
+          >
+            <Slide v-for="slide in images" :key="slide.id" class=" my-client-box">
+              <img class="carousel__item" :src="slide.src" :alt="slide.alt"/>
+            </Slide>
+            <template #addons>
+              <Navigation/>
+            </template>
+          </Carousel>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-export default {
-  components: {},
+import {defineComponent} from 'vue'
+import {Carousel, Navigation, Pagination, Slide} from 'vue3-carousel'
+import 'vue3-carousel/dist/carousel.css'
+
+export default defineComponent({
+  components: {
+    Carousel,
+    Slide,
+    Navigation,
+    Pagination,
+  },
   data() {
     return {
+      currentSlide: 0,
+      images: [
+        {src: "src/assets/images/bicord-image-1.png", alt: "My-Work1"},
+        {src: "src/assets/images/bicord-image-2.png", alt: "My-Work2"},
+        {src: "src/assets/images/bicord-image-3.png", alt: "My-Work3"},
+        {src: "src/assets/images/bicord-image-4.png", alt: "My-Work4"},
+        {src: "src/assets/images/bicord-image-5.png", alt: "My-Work5"},
+        {src: "src/assets/images/bicord-image-6.png", alt: "My-Work5"},
+      ],
       linkName: [
         {iconClass: "fa fa-facebook", link: "#"},
         {iconClass: "fa fa-instagram", link: "#"},
@@ -74,7 +113,7 @@ export default {
     }
   },
 
-}
+})
 </script>
 
 <style lang="scss" scoped>

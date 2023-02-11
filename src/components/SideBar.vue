@@ -62,9 +62,8 @@ export default {
       pageName: [
         {title: "Home", link: "/"},
         {title: "About Me", link: "/about"},
-        {title: "Services", link: "/services"},
-        {title: "Pages", link: "/pages"},
-        {title: "Blog", link: "/blog"},
+        {title: "PortFolio", link: "/portfolio"},
+        {title: "Resume", link: "/resume"},
         {title: "Contact Us", link: "/contact-us"},
       ]
     }

@@ -75,10 +75,18 @@ export default {
 
 
 <style lang="scss" scoped>
+.main-div-wrapper{
+  background: #262439;
+}
 .scale-slide-enter-active,
 .scale-slide-leave-active {
   position: absolute;
-  transition: all 0.85s ease;
+  transition: all 0.900s ease;
+  width: 100%;
+  z-index: 1;
+}
+.scale-slide-enter-active{
+  z-index: 99;
 }
 
 .scale-slide-enter-from {
@@ -86,14 +94,14 @@ export default {
 }
 
 .scale-slide-enter-to {
-  left: 0%;
+  left: 0;
 }
 
 .scale-slide-leave-from {
-  transform: scale(1);
+  right: 0;
 }
 
 .scale-slide-leave-to {
-  transform: scale(0.8);
+  right: -100%;
 }
 </style>
